@@ -1,6 +1,6 @@
 
 <nav class=" navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="https://ibb.co/VBsxCcq"><img src="https://i.ibb.co/VBsxCcq/gatito-tras.png" alt="gatito-tras" border="0"></a>
+  <a class="navbar-brand"  href="{{ route('inicio') }}"><img src="https://i.ibb.co/VBsxCcq/gatito-tras.png" alt="gatito-tras" border="0"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
