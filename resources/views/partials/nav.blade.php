@@ -12,10 +12,23 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('posts_listado') }}">Listado de post</a>
+          <a class="nav-link" href="{{ route('posts.index') }}">Listado de post</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('posts.create') }}">Crear post</a>
         </li>
 
-
       </ul>
+
+   
+
     </div>
+<!--Ocultar elemento en movil y activarlo dentro del dropdown-->
+
+
+
+   
+   
+      
+   
   </nav>
