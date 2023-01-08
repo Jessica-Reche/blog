@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+
 use Illuminate\Http\Request;
+
 
 class PostController extends Controller
 {
@@ -10,10 +13,14 @@ class PostController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     * @return  \Illuminate\Contracts\View\View
+     * 
      */
     public function index()
-    {
-        return view('posts.index');
+    {   $posts= Post::orderBy('titulo', 'asc')->paginate(5);
+   
+   
+        return view('posts.index', compact('posts'));
     }
 
     /**
@@ -43,10 +50,12 @@ class PostController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     *  @return  \Illuminate\Contracts\View\View
      */
     public function show($id)
-    {
-        return view('posts.show', compact('id'));
+    {   
+        $post = Post::findOrFail($id);
+        return view('posts.show', compact('post'));
     }
 
     /**
