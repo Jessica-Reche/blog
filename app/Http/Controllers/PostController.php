@@ -17,9 +17,11 @@ class PostController extends Controller
      * 
      */
     public function index()
-    {   $posts= Post::orderBy('titulo', 'asc')->paginate(5);
-   
-   
+    {
+
+        $posts = Post::orderBy('titulo', 'asc')->paginate(5);
+
+
         return view('posts.index', compact('posts'));
     }
 
@@ -53,7 +55,7 @@ class PostController extends Controller
      *  @return  \Illuminate\Contracts\View\View
      */
     public function show($id)
-    {   
+    {
         $post = Post::findOrFail($id);
         return view('posts.show', compact('post'));
     }
@@ -89,6 +91,50 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //Eliminar el post
+        Post::findOrFail($id)->delete();
+        return redirect()->route('posts.index');
+    }
+
+
+    public function nuevoPrueba()
+    {
+        $posts = new Post();
+        $numero = rand(1, 100);
+
+        $posts->titulo = "Titulo " . $numero;
+        $posts->contenido = "Contenido " . $numero;
+
+
+
+        $posts->save();
+        return redirect()->route('posts.index');
+
+
+    }
+
+    
+    public function editarPrueba($id)
+
+
+    {
+
+     
+        $posts = Post::findOrFail($id);
+        $numero = rand(1, 100);
+
+        $posts->titulo = "Titulo " . $numero;
+        $posts->contenido = "Contenido " . $numero;
+
+
+
+        $posts->save();
+    
+        return redirect()->route('posts.index');
+
+
+    
+
+
     }
 }

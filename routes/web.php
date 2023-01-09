@@ -14,23 +14,18 @@ use App\Http\Controllers\PostController;
 |
 */
 
-//Ejercicio 1
+
 Route::get('/', function () {
     return view('inicio');
 })->name('inicio');
 
-//Ejercicio 2
-//  Route::get('posts', function () {
-//     return view('posts.index');
-//  })->name('posts_listado');
 
-//  Route::get('posts/{id?}', function($id = 0) {
-//      return  view("posts.index", compact('id')) ;
+Route::get('/posts/nuevoPrueba', [PostController::class,'nuevoPrueba'])
+    ->name('posts.nuevoPrueba');
 
-// })->where('id', '[0-9]+')
-// ->name('posts_ficha');
+Route::get('/posts/editarPrueba/{id}', [PostController::class,'editarPrueba'])
+    ->name('posts.editarPrueba');
 
+Route::resource('posts', PostController::class);
 
-  Route::resource('posts', PostController::class)
-  ->only(['index', 'show', 'create', 'edit']);
 
