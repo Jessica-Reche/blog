@@ -13,7 +13,7 @@
         <div class="row">
         
       @forelse ($posts as $post)    
-      <div class="col">
+      <div class="col pb-4">
          <div class="card text-center" style="width: 18rem; ">
               <div class="card-body overflow-hidden" style="height: 10rem;">
                  <h5 class="card-title">{{ $post->titulo }} </h5>
@@ -39,6 +39,7 @@
       </div>
 
     </div>
+    &nbsp;
 
         @empty
             <li>No se encontraron posts</li>
