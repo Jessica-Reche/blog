@@ -7,28 +7,19 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
-        <li class="nav-item active">
+        <li class="{{ setActivo('inicio')}} nav-item" >
           <a class="nav-link" href="{{ route('inicio') }}">Inicio </a>
         </li>
 
-        <li class="nav-item">
+        <li class="{{ setActivo('posts.index') }} nav-item">
           <a class="nav-link" href="{{ route('posts.index') }}">Listado de post</a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <a class="nav-link" href="{{ route('posts.nuevoPrueba') }}">Crear post</a>
-        </li>
+        </li> --}}
+     
 
       </ul>
-
-   
-
     </div>
-<!--Ocultar elemento en movil y activarlo dentro del dropdown-->
 
-
-
-   
-   
-      
-   
   </nav>

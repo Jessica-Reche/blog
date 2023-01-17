@@ -7,18 +7,29 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
-.navbar{
-    background-color: rgba(16, 74, 233, 0.356)!important;
+.navbar {
+    background-color: rgba(16, 74, 233, 0.356) !important;
     font-size: 1.5em;
 }
 
-body{
+body {
     color: rgb(96, 53, 145);
+    background-color: #efefef;
     padding: 0;
     margin: 0;
 }
+p,.active{
+    color: black!important;
+    font-weight: 600;
 
+}
 
+.stripe-dd {
+    background-color:   rgba(16, 74, 233, 0.356) ;
+   
+}
 
-
-
+dl {
+  
+    font-size: 1em!important;
+}

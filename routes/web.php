@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Usuario;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 
@@ -27,5 +29,3 @@ Route::get('/posts/editarPrueba/{id}', [PostController::class,'editarPrueba'])
     ->name('posts.editarPrueba');
 
 Route::resource('posts', PostController::class);
-
-

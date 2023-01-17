@@ -18,11 +18,10 @@ class PostController extends Controller
      */
     public function index()
     {
-
-        $posts = Post::orderBy('titulo', 'asc')->paginate(5);
-
-
+        $posts = Post::with(['usuario', 'comentarios'])->orderBy('titulo', 'asc')->paginate(5);
         return view('posts.index', compact('posts'));
+
+
     }
 
     /**
@@ -99,27 +98,25 @@ class PostController extends Controller
 
     public function nuevoPrueba()
     {
-        $posts = new Post();
         $numero = rand(1, 100);
-
-        $posts->titulo = "Titulo " . $numero;
-        $posts->contenido = "Contenido " . $numero;
-
-
-
-        $posts->save();
+        $post = new Post();
+        $post->titulo = "Titulo " . $numero;
+        $post->contenido = "Contenido " . $numero;
+        $post->usuario_id =rand(1, 3); 
+        $post->save();
         return redirect()->route('posts.index');
+
+
+        
 
 
     }
 
-    
+
     public function editarPrueba($id)
-
-
     {
 
-     
+
         $posts = Post::findOrFail($id);
         $numero = rand(1, 100);
 
@@ -129,11 +126,11 @@ class PostController extends Controller
 
 
         $posts->save();
-    
+
         return redirect()->route('posts.index');
 
 
-    
+
 
 
     }
