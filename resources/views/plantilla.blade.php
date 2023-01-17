@@ -7,8 +7,9 @@
      
     </head>
     <body>
+        <div class="container-fluid"> @include('partials.nav')</div>
         <div class="container">
-            @include('partials.nav')
+           
             <!--Fecha-->
             <p class="text-end">{{fechaActual("d/m/y")}} </p>
    
