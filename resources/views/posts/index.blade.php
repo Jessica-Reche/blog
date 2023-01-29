@@ -32,7 +32,7 @@
                        <button  class="align-self-end btn btn-outline-primary">🗑️</button>
                 </form>
                     &nbsp;
-                 <a href="{{ route('posts.update', $post) }}" class="btn btn-outline-secondary">✏️</a>
+                 <a href="{{ route('posts.edit', $post) }}" class="btn btn-outline-secondary">✏️</a>
                 </div>
 
 
