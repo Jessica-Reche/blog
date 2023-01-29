@@ -1,7 +1,6 @@
 <?php
 
-use App\Models\Usuario;
-use App\Models\Post;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 
@@ -20,12 +19,4 @@ use App\Http\Controllers\PostController;
 Route::get('/', function () {
     return view('inicio');
 })->name('inicio');
-
-
-Route::get('/posts/nuevoPrueba', [PostController::class,'nuevoPrueba'])
-    ->name('posts.nuevoPrueba');
-
-Route::get('/posts/editarPrueba/{id}', [PostController::class,'editarPrueba'])
-    ->name('posts.editarPrueba');
-
 Route::resource('posts', PostController::class);

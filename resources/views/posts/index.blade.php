@@ -5,7 +5,7 @@
 @section('contenido')
 
 
-    <a class="btn btn-outline-primary" href="{{ route('posts.nuevoPrueba') }}">Añadir post</a>
+    <a class="btn btn-outline-primary" href="{{ route('posts.create') }}">Añadir post</a>
 
     <h1>Listado de posts </h1>
 
@@ -32,7 +32,7 @@
                        <button  class="align-self-end btn btn-outline-primary">🗑️</button>
                 </form>
                     &nbsp;
-                 <a href="{{ route('posts.editarPrueba', $post) }}" class="btn btn-outline-secondary">✏️</a>
+                 <a href="{{ route('posts.update', $post) }}" class="btn btn-outline-secondary">✏️</a>
                 </div>
 
 

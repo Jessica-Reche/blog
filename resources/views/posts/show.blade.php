@@ -25,6 +25,16 @@
             <article>
                 <p>{{ $post->contenido }}</p>       
             </article>
+            <section class="d-flex justify-content-center gap-1">
+               <form action="{{ route('posts.destroy', $post) }}" method="POST">
+                @method('DELETE')
+                @csrf
+               <button  class="align-self-end btn btn-outline-primary mb-3">🗑️</button>
+               </form>
+               <a href=" {{route('posts.edit', $post->id)}}"   class="align-self-end btn btn-outline-secondary mb-3">✏️</a>
+               
+            </section>
+           
       </section>
         
   
