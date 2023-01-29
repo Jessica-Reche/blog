@@ -16,16 +16,21 @@
          <label for="titulo">Título:</label>
          <input type="text" class="form-control" name="titulo" id="titulo" value="{{ old('titulo', $post->titulo) }}">
      </div>
+     @error('titulo')
+         <small class="text-danger">{{ $message }}</small>
+     @enderror
 
      <div class="form-group">
          <label for="contenido">Contenido:</label>
-         <textarea class="form-control" name="contenido" id="contenido" cols="30" rows="10">{{$post->contenido}}</textarea>
-      
-   </div>
+         <textarea class="form-control" name="contenido" id="contenido" cols="30" rows="10">{{ old( 'contenido',$post->contenido)}}</textarea>
+     </div>
+        @error('contenido')
+            <small class="text-danger">{{ $message }}</small>
+        @enderror
 
-   <div class="d-flex justify-content-center mt-2">
-    <input type="submit" name="enviar" value="Enviar" class="btn btn-dark btn-block">
- </div>
+    <div class="d-flex justify-content-center mt-2">
+        <input type="submit" name="enviar" value="Enviar" class="btn btn-dark btn-block">
+    </div>
 
  </form>
 </section>
