@@ -4,48 +4,41 @@
 
 @section('contenido')
 
+  
 
-    <a class="btn btn-outline-primary" href="{{ route('posts.create') }}">Añadir post</a>
-
-    <h1>Listado de posts </h1>
-
-    <div class="container">
-        <div class="row">
-
-      @forelse ($posts as $post)
-      <div class="col pb-4">
-         <div class="card text-center" style="width: 18rem; ">
-              <div class="card-body overflow-hidden" style="height: 10rem;">
-                 <h5 class="card-title">{{ $post->titulo }} ({{ $post->usuario->login }}) </h5>
-
-                 <h6 class="card-subtitle mb-2 text-muted">Subtitulo</h6>
-                 <p class="card-text ">{{ $post->contenido }}</p>
-
-                </div>
-                <div class="card-footer d-flex justify-content-end " style="background: inherit; border-color: inherit;">
-
-                 <a href="{{ route('posts.show', $post) }} " class="align-self-start btn btn-outline-secondary ">Ver</a>
-                 &nbsp;
-                 <form action="{{ route('posts.destroy', $post) }}" method="POST">
-                        @method('DELETE')
-                        @csrf
-                       <button  class="align-self-end btn btn-outline-primary">🗑️</button>
-                </form>
-                    &nbsp;
-                 <a href="{{ route('posts.edit', $post) }}" class="btn btn-outline-secondary">✏️</a>
-                </div>
-
-
+  <main class="container text-center">
+    <section class="row">
+        
+      <legend><h1>Listado de posts </h1></legend>  
+      <div class="d-flex justify-content-center mb-2">
+        <a class="btn btn-outline-primary" href="{{ route('posts.create') }}">Añadir post</a>
       </div>
-
-    </div>
-    &nbsp;
-
-        @empty
-            <li>No se encontraron posts</li>
-        @endforelse
-
-
-        {{ $posts->links() }}
-
+      @forelse ($posts as $post)
+        <section class=" col-md-5 col-lg-auto pb-4">
+          <article class="card text-center" style="width: 18rem;">
+            <section class="card-body overflow-hidden" style="height: 10rem;">
+              <h5 class="card-title">{{ $post->titulo }} ({{ $post->usuario->login }}) </h5>
+              <h6 class="card-subtitle mb-2 text-muted">Subtitulo</h6>
+              <p class="card-text ">{{ $post->contenido }}</p>
+            </section>
+            <section class="card-footer d-flex justify-content-end" style="background: inherit; border-color: inherit;">
+              <a href="{{ route('posts.show', $post) }}" class="align-self-start btn btn-outline-secondary">Ver</a>
+              &nbsp;
+              <form action="{{ route('posts.destroy', $post) }}" method="POST">
+                @method('DELETE')
+                @csrf
+                <button class="align-self-end btn btn-outline-primary">🗑️</button>
+              </form>
+              &nbsp;
+              <a href="{{ route('posts.edit', $post) }}" class="btn btn-outline-secondary">✏️</a>
+            </section>
+          </article>
+        </section>
+        &nbsp;
+      @empty
+        <li>No se encontraron posts</li>
+      @endforelse
+      {{ $posts->links() }}
+    </section>
+  </main>
 @endsection
