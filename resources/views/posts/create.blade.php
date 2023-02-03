@@ -5,7 +5,7 @@
 
 @section('contenido')
 
-<section class="container mx-auto row col-md-8  ">
+<section class="container mx-auto row col-md-8  border border-dark bg-white">
     <legend class="text-center"><h1>Crear post</h1></legend>
 <form  action="{{ route('posts.store') }}" method="POST">
     @csrf
@@ -42,7 +42,7 @@
         </select>
         
    </section>
-   <div class="d-flex justify-content-center mt-2">
+   <div class="d-flex justify-content-center m-2">
       <input type="submit" name="enviar" value="Enviar" class="btn btn-dark btn-block">
    </div>
     

@@ -9,10 +9,12 @@
   <main class="container text-center">
     <section class="row">
         
-      <legend><h1>Listado de posts </h1></legend>  
+      <legend><h1>Listado de posts </h1></legend>
+      @if (auth()->check())
       <div class="d-flex justify-content-center mb-2">
         <a class="btn btn-outline-primary" href="{{ route('posts.create') }}">Añadir post</a>
       </div>
+      @endif
       @forelse ($posts as $post)
         <section class=" col-md-5 col-lg-auto pb-4">
           <article class="card text-center" style="width: 18rem;">
@@ -27,10 +29,14 @@
               <form action="{{ route('posts.destroy', $post) }}" method="POST">
                 @method('DELETE')
                 @csrf
+       
+                @if (auth()->check() && auth()->user()->id == $post->usuario_id)
                 <button class="align-self-end btn btn-outline-primary">🗑️</button>
+                
               </form>
               &nbsp;
               <a href="{{ route('posts.edit', $post) }}" class="btn btn-outline-secondary">✏️</a>
+              @endif
             </section>
           </article>
         </section>

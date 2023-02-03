@@ -17,6 +17,7 @@ class UsuariosSeeder extends Seeder
     {
         //creamos 3 usuarios
         Usuario::factory(3)->create();
+    
         
     }
 }
