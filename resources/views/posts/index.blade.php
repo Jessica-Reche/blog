@@ -30,7 +30,8 @@
                 @method('DELETE')
                 @csrf
        
-                @if (auth()->check() && auth()->user()->id == $post->usuario_id)
+                
+              @if (auth()->check() && auth()->user()->id == $post->usuario_id || auth()->user()->rol == 'admin')
                 <button class="align-self-end btn btn-outline-primary">🗑️</button>
                 
               </form>

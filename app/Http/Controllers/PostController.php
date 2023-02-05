@@ -12,8 +12,21 @@ class PostController extends Controller
 {
 
     public function __construct()
-    {
-        $this->middleware('auth')->except(['index', 'show']);
+    {    
+        //todos los usuarios pueden ver los posts, no pueden editar, actualizar y eliminar posts
+
+        //Middleware que permite acceder a los roles editor a su propio post y a los administradores a todos los posts
+        $this->middleware('roles:editor,admin')->only(['edit', 'update']);
+        //Middleware que permite acceder a los roles administradores a todos los posts
+        $this->middleware('roles:admin')->only(['create', 'store']);
+        
+
+
+
+
+
+        
+
     }
     /**
      * Display a listing of the resource.

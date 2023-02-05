@@ -26,10 +26,11 @@
                 <p>{{ $post->contenido }}</p>       
             </article>
             <section class="d-flex justify-content-center gap-1">
+              @if (auth()->check() && auth()->user()->id == $post->usuario_id || auth()->user()->rol == 'admin' )
                <form action="{{ route('posts.destroy', $post) }}" method="POST">
                 @method('DELETE')
                 @csrf
-                @if (auth()->check() && auth()->user()->id == $post->usuario_id)
+               
                <button  class="align-self-end btn btn-outline-primary mb-3">🗑️</button>
                 
                </form>
