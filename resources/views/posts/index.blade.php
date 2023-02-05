@@ -30,14 +30,19 @@
                 @method('DELETE')
                 @csrf
        
-                
-              @if (auth()->check() && auth()->user()->id == $post->usuario_id || auth()->user()->rol == 'admin')
+                @if (auth()->check())
+                @if (isset($post->usuario_id) && auth()->user()->id == $post->usuario_id || auth()->user()->rol == 'admin')
                 <button class="align-self-end btn btn-outline-primary">🗑️</button>
-                
+                @endif 
+                @endif
               </form>
               &nbsp;
+              @if (auth()->check())
+              @if (isset($post->usuario_id) && auth()->user()->id == $post->usuario_id || auth()->user()->rol == 'admin')
               <a href="{{ route('posts.edit', $post) }}" class="btn btn-outline-secondary">✏️</a>
               @endif
+              @endif
+             
             </section>
           </article>
         </section>

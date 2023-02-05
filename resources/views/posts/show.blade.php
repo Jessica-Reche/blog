@@ -26,16 +26,22 @@
                 <p>{{ $post->contenido }}</p>       
             </article>
             <section class="d-flex justify-content-center gap-1">
-              @if (auth()->check() && auth()->user()->id == $post->usuario_id || auth()->user()->rol == 'admin' )
+             
                <form action="{{ route('posts.destroy', $post) }}" method="POST">
                 @method('DELETE')
                 @csrf
-               
+                @if (auth()->check())
+                @if (isset($post->usuario_id) && auth()->user()->id == $post->usuario_id || auth()->user()->rol == 'admin')
                <button  class="align-self-end btn btn-outline-primary mb-3">🗑️</button>
-                
+
+               @endif
+                @endif
                </form>
+               @if (auth()->check())
+               @if (isset($post->usuario_id) && auth()->user()->id == $post->usuario_id || auth()->user()->rol == 'admin')
                <a href=" {{route('posts.edit', $post->id)}}"   class="align-self-end btn btn-outline-secondary mb-3">✏️</a>
                @endif
+                @endif
             </section>
            
       </section>
