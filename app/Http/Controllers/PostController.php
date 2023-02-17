@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\Comentario;
 use App\Models\Post;
 use App\Models\Usuario;
@@ -10,27 +8,15 @@ use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
-
     public function __construct()
     {    
-        //todos los usuarios pueden ver los posts, no pueden editar, actualizar y eliminar posts
-
         //Middleware que permite acceder a los roles editor a su propio post y a los administradores a todos los posts
         $this->middleware('roles:editor,admin')->only(['edit', 'update']);
         //Middleware que permite acceder a los roles administradores a todos los posts
         $this->middleware('roles:admin')->only(['create', 'store']);
-        
-
-
-
-
-
-        
-
     }
     /**
      * Display a listing of the resource.
-     *
      * @return \Illuminate\Http\Response
      * @return  \Illuminate\Contracts\View\View
      * 
@@ -39,12 +25,10 @@ class PostController extends Controller
     {
         $posts = Post::with(['usuario', 'comentarios'])->orderBy('titulo', 'asc')->paginate(5);
         return view('posts.index', compact('posts'));
-
     }
 
     /**
      * Show the form for creating a new resource.
-     *
      * @return \Illuminate\Http\Response
      * @return  \Illuminate\Contracts\View\View
      */
@@ -56,7 +40,6 @@ class PostController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -68,10 +51,7 @@ class PostController extends Controller
         $post->usuario()->associate($request->get('usuario_id'));
         $post->save();
         return redirect()->route('posts.index');
-        
-      
     }
-
     /**
      * Display the specified resource.
      *
@@ -87,7 +67,6 @@ class PostController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      * @return  \Illuminate\Contracts\View\View
@@ -116,7 +95,6 @@ class PostController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
