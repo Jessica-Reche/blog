@@ -106,6 +106,17 @@ class PostController extends Controller
         return redirect()->route('posts.index');
     }
 
+    public function like($id)
+    {
+        $post = Post::findOrFail($id);
+        $post->like = $post->like + 1;
+        $post->save();
+ 
+      
+        return view('posts.index');
+
+    }
+
 
 
 

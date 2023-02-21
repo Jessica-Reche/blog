@@ -24,7 +24,14 @@
               <p class="card-text ">{{ $post->contenido }}</p>
             </section>
             <section class="card-footer d-flex justify-content-end" style="background: inherit; border-color: inherit;">
-              <a href="{{ route('posts.show', $post) }}" class="align-self-start btn btn-outline-secondary">Ver</a>
+              <a href="{{ route('posts.show', $post) }}" class="align-self-start btn btn-outline-secondary">Ver</a>&nbsp;
+            
+              <form action="{{ route('posts.like', $post->id) }}" method="POST">
+                @method('PUT')  
+                @csrf
+                <button class="align-self-end btn btn-outline-secondary">🖤{{$post->like}}</button>
+              </form>
+               
               &nbsp;
               <form action="{{ route('posts.destroy', $post) }}" method="POST">
                 @method('DELETE')

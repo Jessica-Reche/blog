@@ -25,3 +25,5 @@ Route::resource('posts', PostController::class);
 Route::post('login', [LoginController::class, 'login']);
 Route::get('login', [LoginController::class, 'loginForm'])->name('login');
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+//ruta para añadir like
+Route::put('posts/{post}/like', [PostController::class, 'like'])->name('posts.like');
