@@ -29,7 +29,7 @@
               <form action="{{ route('posts.like', $post->id) }}" method="POST">
                 @method('PUT')  
                 @csrf
-                <button class="align-self-end btn btn-outline-secondary">🖤{{$post->like}}</button>
+                <button class="align-self-end btn btn-outline-secondary {{isset($post->like)&&$post->like?'disabled':''}}">🖤{{$post->like}}</button>
               </form>
                
               &nbsp;

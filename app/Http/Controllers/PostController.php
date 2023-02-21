@@ -113,7 +113,8 @@ class PostController extends Controller
         $post->save();
  
       
-        return view('posts.index');
+        return redirect()->route('posts.index');
+
 
     }
 
